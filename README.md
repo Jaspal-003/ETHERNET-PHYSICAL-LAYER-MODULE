@@ -18,3 +18,21 @@
 * After first 58 bits of DESCRAMB_OUT the actual data bits are generated and after 64 clock cycles all the actual data is matching the encoded data hence the VALID_DATA Flag is set, only then the Data packet is given to the DECODER.
 
 <img width="778" height="438" alt="DESCRAMBLER_MODULE" src="https://github.com/user-attachments/assets/3c5def81-39b6-468a-8eab-f4b1b44eca3a" />
+
+# Testbench Results
+
+Starting Cycle-by-Cycle Monitor...
+Time = 0 | VALID_DATA = 0 | DECODE_DATA_IN = xxxxxxxxxxxxxxxxx
+Time = 655000 | VALID_DATA = 0 | DECODE_DATA_IN = 110f3252fd0d9e7fa
+Time = 1295000 | VALID_DATA = 1 | DECODE_DATA_IN = 112153524c0895e81
+
+TRIGGER: VALID_DATA went HIGH at Time 1305000
+
+Transmitted Payload      : 112153524c0895e81
+Current DECODE_DATA_IN   : 112153524c0895e81
+Previous DECODE_DATA_IN  : 110f3252fd0d9e7fa
+>>> RESULT: Match on CURRENT cycle.
+==================================================
+
+Time = 1305000 | VALID_DATA = 0 | DECODE_DATA_IN = 112153524c0895e81
+testbench.sv:106: $finish called at 1520000 (1ps)
