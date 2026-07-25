@@ -31,8 +31,12 @@ TRIGGER: VALID_DATA went HIGH at Time 1305000
 Transmitted Payload      : 112153524c0895e81
 Current DECODE_DATA_IN   : 112153524c0895e81
 Previous DECODE_DATA_IN  : 110f3252fd0d9e7fa
->>> RESULT: Match on CURRENT cycle.
-==================================================
+RESULT: Match on CURRENT cycle.
+
+# Working of Encoder Scrambler Decoder and Descrambler
+* For this design to work properly the clock frequency of Scrambler and Descrambler should be 64 times faster than that of clock frequency of Encoder and decoder
+* Because the encoder is continously encoding the Data received by MAC Layer, and giving parallel bus output, whereas the scrambler is serially scrambling each encoded bit.
+* As you can see in the below diagram of entire top module
 
 Time = 1305000 | VALID_DATA = 0 | DECODE_DATA_IN = 112153524c0895e81
 testbench.sv:106: $finish called at 1520000 (1ps)
