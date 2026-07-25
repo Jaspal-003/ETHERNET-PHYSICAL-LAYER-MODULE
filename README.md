@@ -14,5 +14,7 @@
 <img width="778" height="438" alt="SCRAMBLER_MODULE" src="https://github.com/user-attachments/assets/b318404b-2269-4181-9f89-79744cf44269" />
 
 # DESCRAMBLER MODULE
+* The initial 58 bits of DESCRAMB_OUT will not be or actual data as the LFSR does not consist of valid scramb_keys which is to be decoded hence it is GARBAGE_DATA.
+* After first 58 bits of DESCRAMB_OUT the actual data bits are generated and after 64 clock cycles all the actual data is matching the encoded data hence the VALID_DATA Flag is set, only then the Data packet is given to the DECODER.
 
 <img width="778" height="438" alt="DESCRAMBLER_MODULE" src="https://github.com/user-attachments/assets/3c5def81-39b6-468a-8eab-f4b1b44eca3a" />
