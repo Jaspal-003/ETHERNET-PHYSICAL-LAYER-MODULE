@@ -1,5 +1,5 @@
-# ETHERNET-PHYSICAL-LAYER-MODULE
-* A Verilog implementation of an IEEE 802.3-compliant 64b/66b Ethernet PHY TX/RX datapath. Features include hierarchical modularity, cycle-accurate timing, robust frame integrity checking, and a self-synchronizing scrambler/descrambler.
+# ETHERNET PHYSICAL LAYER SUBMODULE
+* A Verilog implementation and UVM Verification of an IEEE 802.3-compliant 64b/66b Ethernet PHY TX/RX datapath. Features include hierarchical modularity, cycle-accurate timing, robust frame integrity checking, and a self-synchronizing scrambler/descrambler.
 
 <img width="1751" height="762" alt="SCRAMBLER" src="https://github.com/user-attachments/assets/cd2554f3-aeea-43d6-bd24-62b370c0d077" />
 
