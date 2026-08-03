@@ -47,15 +47,14 @@ module ethernet_encoder(
               ENC_OUT <= {SYNC_DATA, XGMII_TXD};
 
             // Start or Ordered Set on Lane 0
-            8'h01: begin
-              if (XGMII_TXD[7:0] == 8'hFB)           // Start Character
+            // Start On lane 0
+            8'h01: 
+            begin
+              // The only valid control character here is Start (0xFB)
+              if (XGMII_TXD[7:0] == 8'hFB)           
                 ENC_OUT <= {SYNC_CTRL, TYPE_START, XGMII_TXD[63:8]};
-              else if (XGMII_TXD[7:0] == 8'h9C)      // Sequence Ordered Set
-                ENC_OUT <= {SYNC_CTRL, TYPE_OS_L0, 28'd0, 4'h0, XGMII_TXD[31:8]};
-              else if (XGMII_TXD[7:0] == 8'h5C)      // Signal Ordered Set
-                ENC_OUT <= {SYNC_CTRL, TYPE_OS_L0, 28'd0, 4'hF, XGMII_TXD[31:8]};
               else
-                ENC_OUT <= {SYNC_CTRL, TYPE_IDLE, 56'd0}; // Error fallback
+                ENC_OUT <= {SYNC_CTRL, TYPE_IDLE, 56'hFFFFFFFFFFFFFF}; // Error fallback
             end
 
             // Start or Ordered Set on Lane 4 (Lanes 0-3 are Control)
